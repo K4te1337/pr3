@@ -1,12 +1,10 @@
 package com.example.myapplication;
-
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.myapplication.databinding.FragmentSecondBinding;
-
 public class SecondFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,6 +15,14 @@ public class SecondFragment extends Fragment {
                     .add(
                             R.id.fragment_container,
                             ThirdFragment.class,
+                            null
+                    )
+                    .commit();
+            getChildFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(
+                            R.id.fragment_container_2,
+                            FourFragment.class,
                             null
                     )
                     .commit();

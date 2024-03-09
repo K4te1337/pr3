@@ -22,6 +22,12 @@ public class ThirdFragment extends Fragment {
             result.putString("bundleKey", "Данные от другого фрагмента");
             getParentFragmentManager().setFragmentResult(
                     "requestKey", result);
+            getParentFragmentManager().setFragmentResultListener("REQUEST_KEY",
+                    this, (requestKey, bundle) -> {
+                        String result2 = bundle.getString("BUNDLE_KEY");
+                        binding.textView.setText(result2);
+                    });
+
         });
         return binding.getRoot();
     }
